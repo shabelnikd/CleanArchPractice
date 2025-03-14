@@ -7,8 +7,10 @@ import com.shabelnikd.cleanarchpractice.domain.repository.CounterRepository
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class CounterRepositoryImpl : CounterRepository, KoinComponent {
-    val apiService: EmulatedService by inject()
+class CounterRepositoryImpl (
+    private val apiService: EmulatedService
+) : CounterRepository, KoinComponent {
+
 
     override fun increment() {
         apiService.increment()
